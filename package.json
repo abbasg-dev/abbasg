@@ -1,0 +1,15 @@
+{
+  "name": "abbasg-dev",
+  "version": "1.0.0",
+  "description": "Abbasg dev Portfolio with HTML, Sass and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass app.scss app.css --watch --no-source-map --style compressed",
+    "build": "sass app.scss app.css --no-source-map --style compressed"
+  },
+  "author": "Abbas Ghaith",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.72.0"
+  }
+}

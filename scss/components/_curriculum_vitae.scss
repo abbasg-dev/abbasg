@@ -1,0 +1,353 @@
+@use "../abstracts/" as *;
+
+.curriculum__vitae {
+  padding: 9rem 0 10rem;
+  background: $white;
+
+  @include responsive(md) {
+    padding: 7rem 0;
+  }
+
+  @include responsive(sm) {
+    padding: 6rem 0;
+  }
+
+  &__title {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: $blue-dark-500;
+    margin-bottom: 1.5rem;
+  }
+
+  &__top,
+  &__bottom {
+    display: block;
+    font-size: clamp(2.6rem, 3vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: $recoletaRegular;
+    text-transform: none;
+    color: $blue-dark-800;
+
+    @include responsive(xsm) {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__heading {
+    display: block;
+    width: 100%;
+    max-width: 70rem;
+    margin: 0;
+    padding: 0;
+    font-size: clamp(4rem, 4.5vw, 5.8rem);
+    font-weight: 900;
+    line-height: 1.03;
+    letter-spacing: -0.04em;
+    font-family: $recoletaBlack, sans-serif;
+
+    background: linear-gradient(
+      135deg,
+      $blue-dark-900 0%,
+      $blue-dark-600 65%,
+      $blue-dark-400 100%
+    );
+    background-size: 180% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    @include responsive(md) {
+      font-size: 4.5rem;
+    }
+
+    @include responsive(sm) {
+      font-size: 3.8rem;
+    }
+
+    @include responsive(xsm) {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__highlight {
+    display: block;
+    max-width: 68rem;
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.75;
+    font-weight: 400;
+    color: $gray-500;
+  }
+
+  .experience {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.8rem;
+    padding: 2rem 0;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+
+    @include responsive(xsm) {
+      gap: 1.2rem;
+    }
+
+    &__details {
+      flex: 1;
+      min-width: 0;
+      margin-left: 0;
+
+      &__position {
+        font-size: 2rem;
+        line-height: 1.25;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: $blue-dark-800;
+
+        @include responsive(xsm) {
+          font-size: 1.65rem;
+        }
+      }
+
+      &__company {
+        margin-top: 0.5rem;
+      }
+
+      &__company,
+      &__date {
+        font-size: 1.35rem;
+        line-height: 1.55;
+        font-weight: 500;
+        color: $gray-500;
+
+        @include responsive(xsm) {
+          font-size: 1.2rem;
+        }
+      }
+
+      &__hr {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.1rem;
+
+        hr {
+          flex-grow: 1;
+          border: 0;
+          border-top: 1px solid $border;
+          margin: 0;
+        }
+
+        i.arrow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3rem;
+          height: 3rem;
+          margin-left: 0;
+          border: 1px solid $border;
+          border-radius: 50%;
+          background: $surface;
+          color: $blue-dark-600;
+          font-size: 1.25rem;
+          cursor: pointer;
+          transition:
+            transform 0.25s ease,
+            background 0.25s ease,
+            color 0.25s ease;
+
+          &:hover {
+            background: $blue-dark-700;
+            color: $white;
+            transform: translateY(-1px);
+          }
+        }
+      }
+
+      > *:not(.experience__details__description) {
+        flex-shrink: 0;
+      }
+
+      &__description {
+        margin-top: 1rem;
+        padding: 0 1.5rem 0 0.5rem;
+        transform: scaleY(0);
+        transform-origin: top;
+        visibility: hidden;
+        opacity: 0;
+        transition:
+          transform 0.35s ease,
+          opacity 0.25s ease,
+          visibility 0s linear 0.35s;
+
+        &__p {
+          margin-top: 1.3rem;
+          margin-bottom: 0.45rem;
+          font-size: 1.25rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: $blue-dark-500;
+        }
+
+        &__tools {
+          font-size: 1.3rem;
+          line-height: 1.6;
+          font-weight: 500;
+          color: $gray-600;
+        }
+
+        &__ul {
+          list-style: outside;
+          margin-top: 0.8rem;
+          list-style-type: disc;
+          padding-left: 1.625em;
+
+          &__li {
+            font-size: 1.3rem;
+            line-height: 1.65;
+            font-weight: 400;
+            margin-bottom: 0.7rem;
+            color: $gray-600;
+
+            &::marker {
+              color: $accent;
+            }
+          }
+        }
+
+        &.open {
+          transform: scaleY(1);
+          visibility: visible;
+          opacity: 1;
+          transition:
+            transform 0.35s ease,
+            opacity 0.35s ease,
+            visibility 0s linear 0s;
+        }
+      }
+    }
+
+    > img {
+      flex: 0 0 6rem;
+      width: 6rem;
+      height: 6rem;
+      padding: 0.8rem;
+      object-fit: contain;
+      background: $surface-muted;
+      border: 1px solid $border;
+      border-radius: 1.3rem;
+    }
+  }
+
+  .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .web__dev {
+    margin-bottom: 1.2rem;
+    padding: 1.7rem 2rem;
+    border: 1px solid $border;
+    border-radius: 1.2rem;
+    background: $surface;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateX(0.3rem);
+      border-color: $blue-dark-200;
+      box-shadow: 0 1rem 2.5rem rgba($blue-dark-900, 0.06);
+    }
+
+    @include responsive(md) {
+      padding: 1.5rem;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $blue-dark-500;
+    }
+
+    p {
+      font-weight: 600;
+      margin-bottom: 0;
+      color: $blue-dark-800;
+      font-size: 1.4rem;
+      line-height: 1.55;
+    }
+  }
+
+  .certs__heading,
+  .education__heading {
+    font-size: 2rem;
+    margin: 4rem 0 1.5rem;
+    line-height: 1.3;
+    color: $blue-dark-800;
+    font-family: $recoletaBlack, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .cert,
+  .education {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    opacity: 1;
+    height: auto;
+    transform: none;
+    margin: 0;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid $border;
+
+    &__details {
+      min-width: 0;
+      margin-left: 0;
+
+      &__title {
+        font-size: 1.65rem;
+        line-height: 1.4;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: $blue-dark-800;
+      }
+
+      &__university,
+      &__date,
+      &__company {
+        font-size: 1.25rem;
+        line-height: 1.55;
+        font-weight: 500;
+        color: $gray-500;
+      }
+
+      &__university,
+      &__company {
+        margin-top: 0.35rem;
+      }
+    }
+
+    > img {
+      flex: 0 0 5.5rem;
+      width: 5.5rem;
+      height: 5.5rem;
+      padding: 0.7rem;
+      object-fit: contain;
+      background: $surface-muted;
+      border: 1px solid $border;
+      border-radius: 1.1rem;
+    }
+  }
+}

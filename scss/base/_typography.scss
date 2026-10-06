@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Averta";
+  src: url("scss/assets/fonts/Averta-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Averta";
+  src: url("scss/assets/fonts/Averta-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Averta";
+  src: url("scss/assets/fonts/Averta-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recoleta Black";
+  src: url("scss/assets/fonts/Recoleta-Black.eot");
+  src: url("scss/assets/fonts/Recoleta-Black.eot?#iefix")
+      format("embedded-opentype"),
+    url("scss/assets/fonts/Recoleta-Black.woff") format("woff"),
+    url("scss/assets/fonts/Recoleta-Black.woff2") format("woff2"),
+    url("scss/assets/fonts/Recoleta-Black.ttf") format("truetype"),
+    url("scss/assets/fonts/Recoleta-Black.svg#Recoleta Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recoleta Regular";
+  src: url("scss/assets/fonts/Recoleta-Regular.eot");
+  src: url("scss/assets/fonts/Recoleta-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("scss/assets/fonts/Recoleta-Regular.woff2") format("woff2"),
+    url("scss/assets/fonts/Recoleta-Regular.woff") format("woff"),
+    url("scss/assets/fonts/Recoleta-Regular.ttf") format("truetype"),
+    url("scss/assets/fonts/Recoleta-Regular.eot#Recoleta Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Averta", Arial, sans-serif !important;
+  background: #fffdf9;
+  color: #24231f;
+  font-feature-settings: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}

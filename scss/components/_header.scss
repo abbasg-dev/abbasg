@@ -1,0 +1,224 @@
+@use "../abstracts" as *;
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  margin-top: 8rem;
+  min-height: calc(100vh - 8rem);
+  display: flex;
+  align-items: center;
+  padding: 5rem 0 7rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 78% 28%, rgba($blue-dark-200, 0.28), transparent 25%),
+      radial-gradient(circle at 10% 75%, rgba($accent-soft, 0.34), transparent 24%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__data {
+    width: 100%;
+    min-height: 62rem;
+    @include flexBox(null, center);
+
+    @include responsive(md) {
+      min-height: unset;
+      padding-bottom: 2rem;
+    }
+
+    &__contents {
+      max-width: 66rem;
+
+      &__top {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-transform: capitalize;
+        color: $blue-dark-500;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.4rem;
+
+        @include responsive(xsm) {
+          font-size: 1.55rem;
+        }
+      }
+
+      &__heading {
+        margin-top: 1rem;
+        font-size: clamp(4.5rem, 5.4vw, 7rem);
+        font-weight: 900;
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+        text-transform: capitalize;
+        font-family: $recoletaBlack, sans-serif;
+        background-image: linear-gradient(
+          120deg,
+          $blue-dark-900 0%,
+          $blue-dark-600 55%,
+          $blue-dark-400 100%
+        );
+        background-size: 180% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        animation: textclip 8s ease-in-out infinite alternate;
+        @include textclip-animation;
+
+        @include responsive(md) {
+          font-size: 5.4rem;
+          line-height: 1;
+        }
+
+        @include responsive(sm) {
+          font-size: 4.3rem;
+          margin-top: 0.8rem;
+        }
+
+        @include responsive(xsm) {
+          font-size: 3.5rem;
+        }
+      }
+
+      &__bottom {
+        display: block;
+        margin-top: 0.8rem;
+        font-size: clamp(2.6rem, 3.2vw, 4.2rem);
+        font-weight: 400;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        font-family: $recoletaRegular;
+        text-transform: none;
+        color: $blue-dark-800;
+
+        span {
+          text-decoration: underline;
+          text-decoration-thickness: 0.18em;
+          text-decoration-color: $accent;
+          text-underline-offset: 0.14em;
+        }
+
+        @include responsive(xsm) {
+          font-size: 2.25rem;
+        }
+      }
+
+      &__about {
+        max-width: 61rem;
+        margin-top: 2.2rem;
+        font-size: 1.75rem;
+        line-height: 1.8;
+        font-weight: 400;
+        color: $gray-600;
+
+        @include responsive(xsm) {
+          font-size: 1.5rem;
+          line-height: 1.7;
+        }
+      }
+
+      &__links {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-top: 2.8rem;
+
+        & > a {
+          margin: 0 !important;
+        }
+
+        @include responsive(xsm) {
+          gap: 0.8rem;
+        }
+      }
+    }
+  }
+
+  &__clip {
+    position: absolute;
+    width: 31%;
+    height: 88%;
+    background: url("scss/assets/images/abbasg.png") no-repeat center;
+    transform-origin: center;
+    background-size: 100%;
+    filter: drop-shadow(0 2.5rem 4rem rgba($blue-dark-900, 0.12));
+
+    @include responsive(md) {
+      height: 35%;
+      width: 52%;
+    }
+  }
+
+  &__clip_1 {
+    @include clip-path-animation(
+      __clip_1,
+      polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%),
+      polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+      4s
+    );
+  }
+
+  &__clip_a {
+    transform: scale(1.1, 1.1);
+    @include clip-path-animation(
+      __clip_a,
+      polygon(-5% -55%, 55% -45%, -45% 55%, -95% 55%),
+      polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+      9s
+    );
+  }
+
+  &__clip_2 {
+    transform: scale(1.12, 1.12);
+    @include clip-path-animation(
+      __clip_2,
+      polygon(50% -50%, 100% -50%, 200% 50%, 150% 50%),
+      polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+      5s
+    );
+  }
+
+  &__clip_b {
+    transform: scale(1.14, 1.14);
+    @include clip-path-animation(
+      __clip_b,
+      polygon(40% -60%, 100% -50%, 190% 40%, 150% 50%),
+      polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+      4s
+    );
+  }
+
+  &__clip_3 {
+    transform: scale(1.15, 1.15);
+    @include clip-path-animation(
+      __clip_3,
+      polygon(-100% -150%, -50% -150%, -150% -50%, -200% -50%),
+      polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+      7s
+    );
+  }
+
+  &__clip_4 {
+    transform: scale(1.13, 1.13);
+    @include clip-path-animation(
+      __clip_4,
+      polygon(150% -150%, 200% -150%, 300% -50%, 250% -50%),
+      polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+      6s
+    );
+  }
+}

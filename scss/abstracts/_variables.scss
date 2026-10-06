@@ -1,0 +1,47 @@
+$gutter: 1.5rem;
+$maxWidth: 120rem;
+$textDur: 1050ms;
+$waveDur: 2100ms;
+$recoletaBlack: "Recoleta Black";
+$recoletaRegular: "Recoleta Regular";
+
+// xlg: 1200px above
+// lg: 1200px - 993px
+// md: 992px - 769px
+// sm: 768px - 481px
+// xsm: 480px - 0
+
+$breakPoints: (
+  "xlg": 1200px,
+  "lg": 1200px,
+  "md": 992px,
+  "sm": 768px,
+  "xsm": 480px,
+);
+
+$header-clip-path-animations: (
+  clip1: (
+    from: polygon(0% -50%, 50% -50%, -50% 50%, -100% 50%),
+    to: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+  ),
+  clipa: (
+    from: polygon(-5% -55%, 55% -45%, -45% 55%, -95% 55%),
+    to: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+  ),
+  clip2: (
+    from: polygon(50% -50%, 100% -50%, 200% 50%, 150% 50%),
+    to: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+  ),
+  clipb: (
+    from: polygon(40% -60%, 100% -50%, 190% 40%, 150% 50%),
+    to: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+  ),
+  clip3: (
+    from: polygon(-100% -150%, -50% -150%, -150% -50%, -200% -50%),
+    to: polygon(150% 50%, 200% 50%, 100% 150%, 50% 150%),
+  ),
+  clip4: (
+    from: polygon(150% -150%, 200% -150%, 300% -50%, 250% -50%),
+    to: polygon(-100% 50%, -50% 50%, 50% 150%, 0% 150%),
+  ),
+);

@@ -1,0 +1,83 @@
+@use "../abstracts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+::selection {
+  color: $white;
+  background: $blue-dark-500;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid $accent;
+  outline-offset: 4px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+@include responsive(md) {
+  .ordered {
+    gap: 70px;
+    margin-top: 40px;
+
+    div:nth-child(1) {
+      order: 1;
+      height: unset;
+    }
+
+    div:nth-child(2) {
+      order: -1;
+      height: 35vh;
+    }
+  }
+
+  .center {
+    width: 100%;
+  }
+}
+
+@include responsive(sm) {
+  .ordered {
+    gap: 30px;
+    margin-top: unset;
+
+    div:nth-child(1) {
+      order: 1;
+    }
+
+    div:nth-child(2) {
+      order: -1;
+      height: 34vh;
+    }
+  }
+
+  .center {
+    width: 100%;
+  }
+}

@@ -1,0 +1,235 @@
+@use "../abstracts" as *;
+
+.nav {
+  width: 100%;
+  height: 8rem;
+  background: rgba($white, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 9999;
+  @include position(fixed, 0, null, null, 0);
+  border-bottom: 0.1rem solid rgba($blue-dark-700, 0.08);
+  @include flexBox(center, null);
+  box-shadow: 0 0.8rem 3rem rgba($blue-dark-900, 0.04);
+
+  &__wrapper {
+    width: 100%;
+    max-width: $maxWidth;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    @include flexBox(space-between, center);
+
+    @include responsive(sm) {
+      padding-left: $gutter + 1rem;
+      padding-right: $gutter + 1rem;
+    }
+
+    &__logo {
+      position: relative;
+      width: 17rem;
+      height: 8rem;
+
+      .coast {
+        position: absolute;
+        left: 20px;
+        bottom: 0;
+        width: 6.2rem;
+        height: 2.2rem;
+        display: inline-block;
+        animation: coast $waveDur linear infinite;
+        transform: translateZ(0);
+      }
+
+      .wave__rel__wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        perspective: 3rem;
+        perspective-origin: 0%, 50%;
+      }
+
+      .wave {
+        position: absolute;
+        width: 6.2rem;
+        height: 2.2rem;
+        border-radius: 1.1rem;
+        background: $blue-dark-200;
+        display: inline-block;
+        animation: wave $waveDur linear infinite;
+        will-change: width;
+        transform: translateZ(0) scale(0);
+      }
+
+      .delay {
+        animation-delay: calc($waveDur / 2);
+      }
+
+      .name {
+        font-family: $recoletaBlack, sans-serif;
+        color: $blue-dark-700;
+        font-size: 4rem;
+        font-weight: 900;
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        top: 24px;
+        animation: name $textDur ease-in infinite;
+        transform: translatez(0);
+
+        &__a__0 {
+          left: 1.6rem;
+          transform: translate3d(0, -4rem, 0);
+          animation: name__a $textDur ease-in infinite;
+        }
+
+        &__b__0 {
+          left: 4rem;
+          animation-delay: 150ms;
+        }
+
+        &__b__1 {
+          left: 6.4rem;
+          animation-delay: 230ms;
+        }
+
+        &__a__1 {
+          left: 8.9rem;
+          animation-delay: 310ms;
+        }
+
+        &__s {
+          left: 11.2rem;
+          animation-delay: 390ms;
+        }
+
+        &__g {
+          left: 13.2rem;
+          animation-delay: 470ms;
+        }
+      }
+    }
+
+    &__ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 0.35rem;
+
+      @include responsive(sm) {
+        @include position(fixed, 8rem, 0, 0, 0);
+        width: 100%;
+        height: calc(100vh - 8rem);
+        background: $blue-dark-800;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 3rem 2rem;
+        transform: translateX(100%);
+        border-radius: 0;
+        transition: transform 0.35s ease;
+        transform-origin: 100% 50%;
+        box-shadow: -1rem 0 4rem rgba($blue-dark-900, 0.12);
+      }
+
+      &__li {
+        &__a {
+          position: relative;
+          display: block;
+          text-decoration: none;
+          text-transform: capitalize;
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: $gray-600;
+          padding: 1rem 1.2rem;
+          border-radius: 0.8rem;
+          transition: color 0.25s ease, background 0.25s ease,
+            transform 0.25s ease;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 1.2rem;
+            right: 1.2rem;
+            bottom: 0.45rem;
+            height: 2px;
+            background: $accent;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+          }
+
+          &:hover {
+            color: $blue-dark-700;
+            background: $blue-dark-50;
+
+            &::after {
+              transform: scaleX(1);
+            }
+          }
+
+          @include responsive(sm) {
+            padding: 1.5rem 1.8rem;
+            color: rgba($white, 0.82);
+            font-size: 1.7rem;
+            border-radius: 1rem;
+
+            &::after {
+              display: none;
+            }
+
+            &:hover {
+              background: rgba($white, 0.08);
+              color: $white;
+              transform: translateX(0.4rem);
+            }
+          }
+        }
+
+        &:first-child &__a {
+          color: $blue-dark-500;
+
+          @include responsive(sm) {
+            color: $white;
+          }
+        }
+
+        &:last-child &__a {
+          padding-right: 1.2rem;
+        }
+      }
+    }
+
+    &__toggle {
+      display: none;
+      width: 4rem;
+      height: 4rem;
+      background: $blue-dark-700;
+      border-radius: 1rem;
+      border: 1px solid rgba($white, 0.12);
+      box-shadow: 0 0.8rem 1.8rem rgba($blue-dark-900, 0.14);
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease;
+
+      i {
+        color: $white;
+        font-size: 2.1rem;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        background: $blue-dark-600;
+      }
+
+      @include responsive(sm) {
+        @include flexBox(center, center);
+      }
+    }
+  }
+
+  @include responsive(sm) {
+    &__active {
+      top: 8rem;
+      transform: translateX(0);
+      border-radius: 0;
+    }
+  }
+}

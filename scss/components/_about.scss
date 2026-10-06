@@ -1,0 +1,267 @@
+@use "../abstracts/" as *;
+
+.about {
+  position: relative;
+  padding: 9rem 0;
+  border-top: 1px solid rgba($blue-dark-700, 0.06);
+  border-bottom: 1px solid rgba($blue-dark-700, 0.06);
+  background:
+    linear-gradient(180deg, rgba($surface, 0.7), rgba($surface-muted, 0.72));
+
+  @include responsive(md) {
+    padding: 7rem 0;
+  }
+
+  @include responsive(sm) {
+    padding: 6rem 0;
+  }
+
+  &__image {
+    width: min(34rem, 82vw);
+    aspect-ratio: 1;
+    height: auto;
+    position: relative;
+    margin: 2rem auto 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1.6rem;
+      border: 1px solid rgba($blue-dark-300, 0.45);
+      border-radius: 50%;
+      transform: rotate(-7deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 7rem;
+      height: 7rem;
+      right: -2.5rem;
+      top: 2rem;
+      border-radius: 50%;
+      background: $accent;
+      opacity: 0.18;
+      filter: blur(1px);
+    }
+
+    @include responsive(md) {
+      width: min(31rem, 72vw);
+      margin-bottom: 4rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 2.5rem 5rem rgba($blue-dark-900, 0.15);
+    }
+
+    &__small {
+      @include position(absolute !important, auto, null, -3.5rem, -3.5rem);
+      width: 14rem;
+      height: 14rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      @include responsive(xsm) {
+        width: 10rem;
+        height: 10rem;
+        left: -1.5rem;
+        bottom: -2rem;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 0.45rem;
+        border: 0.3rem solid $surface;
+        background: $surface;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 1.5rem 3rem rgba($blue-dark-900, 0.16);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -0.3rem;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 120deg,
+          $blue-dark-700,
+          $blue-dark-300,
+          $accent,
+          $blue-dark-700
+        );
+        animation: rotateBorder 7s linear infinite;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__info {
+    margin-top: 2rem;
+    max-width: 65rem;
+
+    &__title {
+      display: inline-block;
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: $blue-dark-500;
+      margin-bottom: 0.5rem;
+    }
+
+    &__heading {
+      margin-top: 1rem;
+      font-size: clamp(4rem, 4.5vw, 5.8rem);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+      font-family: $recoletaBlack, sans-serif;
+      background: linear-gradient(
+        135deg,
+        $blue-dark-900 0%,
+        $blue-dark-600 65%,
+        $blue-dark-400 100%
+      );
+      background-size: 180% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+
+      @include responsive(md) {
+        font-size: 4.5rem;
+      }
+
+      @include responsive(sm) {
+        font-size: 3.8rem;
+      }
+
+      @include responsive(xsm) {
+        font-size: 3.2rem;
+      }
+    }
+
+    &__bottom {
+      display: block;
+      margin-top: 0.7rem;
+      font-size: clamp(2.5rem, 3.1vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      font-family: $recoletaRegular;
+      text-transform: none;
+      color: $blue-dark-800;
+
+      @include responsive(xsm) {
+        font-size: 2.2rem;
+      }
+    }
+
+    &__message {
+      max-width: 60rem;
+      margin-top: 2rem;
+      font-size: 1.75rem;
+      line-height: 1.8;
+      font-weight: 400;
+      color: $gray-600;
+
+      @include responsive(xsm) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__experience {
+      height: 100%;
+      margin-top: 2rem;
+      padding: 3rem;
+      background: rgba($surface, 0.9);
+      border: 1px solid $border;
+      border-radius: 1.6rem;
+      box-shadow: 0 1.5rem 4rem rgba($blue-dark-900, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+      &:hover {
+        transform: translateY(-0.4rem);
+        border-color: $blue-dark-200;
+        box-shadow: 0 2rem 4.5rem rgba($blue-dark-900, 0.09);
+      }
+
+      @include responsive(xsm) {
+        padding: 2rem;
+      }
+
+      &__top {
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        font-size: 1.45rem;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: $blue-dark-500;
+      }
+
+      &__about {
+        margin-top: 1rem;
+        font-size: 1.55rem;
+        line-height: 1.75;
+        font-weight: 400;
+        color: $gray-600;
+      }
+
+      &__ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-top: 2rem;
+        gap: 0.8rem;
+
+        &__li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 5.2rem;
+          height: 5.2rem;
+          border: 1px solid $border;
+          border-radius: 1.1rem;
+          background: $white;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+          &:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 0.8rem 1.8rem rgba($blue-dark-900, 0.08);
+          }
+
+          &__a {
+            height: 3.4rem;
+            width: 3.4rem;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
